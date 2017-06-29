@@ -1,0 +1,10 @@
+<h1>Customer details for <%= @customer.name %></h1>
+<li><%= @customer.phone %></li>
+<li><%= @customer.email %></li>
+
+<div class='container'>
+<%= render 'layouts/bookings', bookings: @current_bookings, title: 'Active Bookings' %>
+<%= render 'layouts/bookings', bookings: @future_bookings, title: 'Future Reservations' %>
+<%= render 'layouts/bookings', bookings: @past_bookings, title: 'Past Bookings' %>
+<%= render 'layouts/bookings', bookings: @cancelled_bookings, title: 'Cancelled Reservations' %>
+</div>

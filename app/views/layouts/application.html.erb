@@ -1,18 +1,26 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>HotelManager</title>
-    <%= csrf_meta_tags %>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <%= stylesheet_link_tag    'application', media: 'all' %>
-    <%= javascript_include_tag 'application' %>
+    <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
+
+
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
   </head>
 
   <body>
     <header>
+      <%= link_to 'Home', root_path %>
       <%= link_to 'link for hotel listings', hotels_path %>
-      <%= link_to 'link for current hotel', hotel_path(params[:id]) if params[:id]%>
+      <%= link_to 'link for current hotel', hotel_path(params[:id]) if request.env['PATH_INFO'].include?('hotels/') %>
     </header>
+
     <%= yield %>
+
   </body>
 </html>
+<!DOCTYPE html>
