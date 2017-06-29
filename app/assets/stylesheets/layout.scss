@@ -1,15 +1,22 @@
 header {
   background-color: #233141;
-  width: 100%;
   color: #66D9EF;
   height: 6vh;
-  font-size: 200%;
+  font-size: 150%;
   a, a:visited {
     color: inherit;
   }
 }
 
-.something {
-  border: black;
-  border-style: solid;
+.booking-container {
+  align-self: center;
+  text-align: center;
+}
+
+.booking-thumbnail {
+  width: 100%;
+}
+
+.logo {
+  height: 5vh;
 }

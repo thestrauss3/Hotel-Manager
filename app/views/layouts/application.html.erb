@@ -14,6 +14,7 @@
 
   <body>
     <header>
+      <%= image_tag 'bell.png', class: 'logo'%>
       <%= link_to 'Home', root_path %>
       <%= link_to 'link for hotel listings', hotels_path %>
       <%= link_to 'link for current hotel', hotel_path(params[:id]) if request.env['PATH_INFO'].include?('hotels/') %>
