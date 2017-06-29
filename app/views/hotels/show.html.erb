@@ -2,3 +2,4 @@
 
 <%= link_to 'View and edit hotel rooms', room_editor_hotel_path(params[:id]) %>
 <%= react_component('TestComponent', name: 'John') %>
+<%= react_component('Schedule', bookings: @hotel.bookings) %>
