@@ -20,6 +20,8 @@
       <%= link_to 'link for current hotel', hotel_path(params[:id]) if request.env['PATH_INFO'].include?('hotels/') %>
     </header>
 
+    <%= react_component('HelloMessage', name: 'John') %>
+
     <%= yield %>
 
   </body>
