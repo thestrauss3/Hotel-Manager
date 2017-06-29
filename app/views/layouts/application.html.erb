@@ -22,6 +22,8 @@
       <%= link_to @hotel.name, hotel_path(params[:id]), class: 'nav-link' if request.env['PATH_INFO'].include?('hotels/') %>
     </header>
 
+    <%= react_component('HelloMessage', name: 'John') %>
+
     <%= yield %>
 
   </body>
