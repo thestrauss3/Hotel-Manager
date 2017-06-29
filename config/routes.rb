@@ -14,6 +14,8 @@ Rails.application.routes.draw do
     resources :bookings
   end
 
+  resources :searches, only: [:index]
+
   get 'index', to: 'static_pages#home'
   get 'home', to: 'static_pages#home'
   get 'about', to: 'static_pages#about'
