@@ -5,6 +5,8 @@ class CreateRooms < ActiveRecord::Migration[5.0]
       t.string :room_type, null: false
       t.integer :beds, null: false
       t.string :bed_type, null: false
+      t.belongs_to :floor, null: false
+      t.belongs_to :hotel, null: false
 
       t.timestamps
     end

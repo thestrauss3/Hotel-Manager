@@ -37,8 +37,12 @@ ActiveRecord::Schema.define(version: 20170629002037) do
     t.string   "room_type",   null: false
     t.integer  "beds",        null: false
     t.string   "bed_type",    null: false
+    t.integer  "floor_id",    null: false
+    t.integer  "hotel_id",    null: false
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.index ["floor_id"], name: "index_rooms_on_floor_id", using: :btree
+    t.index ["hotel_id"], name: "index_rooms_on_hotel_id", using: :btree
   end
 
 end

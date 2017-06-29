@@ -1,18 +1,19 @@
 Rails.application.routes.draw do
   root 'static_pages#home'
-  get 'static_pages/home'
 
-  get 'static_pages/help'
+  resources :hotels, only: [:index, :show] do
+    resources :floors, only: [:index, :show]
+    resources :rooms, only: [:index]
+  end
 
-  get 'static_pages/contact'
+  resources :rooms, only: [:show]
 
-  get 'static_pages/about'
-
-  get 'static_pages/error'
-
+  get 'index', to: 'static_pages#home'
   get 'home', to: 'static_pages#home'
+  get 'about', to: 'static_pages#about'
+  get 'contact', to: 'static_pages#contact'
+  get 'help', to: 'static_pages#help'
   get '*path', to: 'static_pages#error'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
 
 Rails.application.routes.draw do
