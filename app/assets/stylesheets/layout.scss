@@ -24,3 +24,8 @@ header {
 .hidden {
   display:none
 }
+
+.nav-link:not(:last-child) {
+  border-right: solid;
+  padding-right: .5em;
+}
