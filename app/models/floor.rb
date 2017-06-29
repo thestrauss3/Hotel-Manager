@@ -1,5 +1,5 @@
 class Floor < ApplicationRecord
-  validates :hotel, :floor_name, presence: true
+  validates :hotel, :long_floor_name, :short_floor_name, presence: true
 
   belongs_to :hotel
   has_many :rooms

@@ -2,7 +2,7 @@
 <h2>See information for individual floors</h2>
 <ul><% @floors.each do |floor| %>
   <li>
-    <%= link_to floor.floor_name, floor_path(floor.id) %>
+    <%= link_to floor.long_floor_name, floor_path(floor.id) %>
   </li>
 <% end %></ul>
 
