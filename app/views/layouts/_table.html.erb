@@ -5,7 +5,6 @@
     <th>Room Type</th>
     <th>Number of Beds</th>
     <th>Type of Bed</th>
-    <% unless @floor %><th>Floor</th><% end %>
   </tr>
   <% @rooms.each do |room| %>
     <tr>
@@ -13,7 +12,6 @@
       <td><%= room.room_type %></td>
       <td><%= room.beds %></td>
       <td><%= room.bed_type %></td>
-      <% unless @floor %><td><%= room.floor.short_floor_name %></td><% end %>
     </tr>
   <% end %>
 </table>
