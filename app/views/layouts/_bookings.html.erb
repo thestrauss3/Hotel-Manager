@@ -1,0 +1,17 @@
+<div class="something columns small-12 large-6">
+<h2><%= title %></h2>
+<table>
+  <tr>
+    <th>Room</th>
+    <th>Check-in Date</th>
+    <th>Check-out Date</th>
+    <th>Status</th>
+  </tr>
+  <% bookings.each do |b| %><tr>
+    <td><%= b.room.room_number %></td>
+    <td><%= b.checkin_date %></td>
+    <td><%= b.checkout_date %></td>
+    <td><%= b.status %></td>
+  </tr><% end %>
+</table>
+</div>

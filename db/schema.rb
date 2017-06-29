@@ -10,10 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170629121327) do
+ActiveRecord::Schema.define(version: 20170629143300) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bookings", force: :cascade do |t|
+    t.integer  "customer_id",                           null: false
+    t.integer  "room_id",                               null: false
+    t.date     "checkin_date",                          null: false
+    t.date     "checkout_date",                         null: false
+    t.string   "status",        default: "Reservation", null: false
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
+    t.index ["customer_id"], name: "index_bookings_on_customer_id", using: :btree
+    t.index ["room_id"], name: "index_bookings_on_room_id", using: :btree
+  end
+
+  create_table "customers", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.string   "phone",      null: false
+    t.string   "email",      null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "hotels", force: :cascade do |t|
     t.string   "name",       null: false
@@ -29,11 +49,9 @@ ActiveRecord::Schema.define(version: 20170629121327) do
     t.string   "room_type",   null: false
     t.integer  "beds",        null: false
     t.string   "bed_type",    null: false
-    t.integer  "floor_id",    null: false
     t.integer  "hotel_id",    null: false
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.index ["floor_id"], name: "index_rooms_on_floor_id", using: :btree
     t.index ["hotel_id"], name: "index_rooms_on_hotel_id", using: :btree
   end
 

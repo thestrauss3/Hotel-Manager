@@ -1,0 +1,5 @@
+<h1>Customer Index Page</h1>
+
+<ul><% @customers.each do |c| %>
+  <li><%= link_to c.name, customer_path(c.id) %></li>
+<% end %></ul>
