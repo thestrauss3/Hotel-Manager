@@ -3,6 +3,9 @@ Rails.application.routes.draw do
 
   resources :hotels, only: [:index, :show] do
     resources :rooms, only: [:index]
+    member do
+      get :room_editor
+    end
   end
 
   resources :rooms, only: [:show]

@@ -9,6 +9,10 @@
   </head>
 
   <body>
+    <header>
+      <%= link_to 'link for hotel listings', hotels_path %>
+      <%= link_to 'link for current hotel', hotel_path(params[:id]) if params[:id]%>
+    </header>
     <%= yield %>
   </body>
 </html>

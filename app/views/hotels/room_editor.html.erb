@@ -1,0 +1,16 @@
+<table>
+  <tr>
+    <th>Room Number</th>
+    <th>Room Type</th>
+    <th>Number of Beds</th>
+    <th>Type of Bed</th>
+  </tr>
+  <% @rooms.each do |room| %>
+    <tr>
+      <td><input value=<%= room.room_number %>></td>
+      <td><%= room.room_type %></td>
+      <td><%= room.beds %></td>
+      <td><%= room.bed_type %></td>
+    </tr>
+  <% end %>
+</table>

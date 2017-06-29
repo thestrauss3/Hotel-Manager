@@ -7,4 +7,9 @@ class HotelsController < ApplicationController
     @hotel = Hotel.find(params[:id])
     @rooms = @hotel.rooms
   end
+
+  def room_editor
+    @hotel = Hotel.find(params[:id])
+    @rooms = @hotel.rooms
+  end
 end
