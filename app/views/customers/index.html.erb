@@ -1,5 +1,10 @@
 <h1>Customer Index Page</h1>
-
+<div class="">
+  <%= form_tag(searches_path, :method => "get", class: "search-form small-12 large-4") do %>
+    <%=text_field_tag :search, params[:search], placeholder: "Search customers", class: "search" %>
+    <%= submit_tag "Search", class: "hidden" %>
+  <% end %>
+</div>
 <ul><% @customers.each do |c| %>
   <li><%= link_to c.name, customer_path(c.id) %></li>
 <% end %></ul>
