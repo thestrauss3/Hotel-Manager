@@ -2,9 +2,11 @@ Rails.application.routes.draw do
   root 'static_pages#home'
 
   resources :hotels, only: [:index, :show] do
-    resources :floors, only: [:index, :show]
+    resources :floors, only: [:index]
     resources :rooms, only: [:index]
   end
+
+  resources :floors, only: [:show]
 
   resources :rooms, only: [:show]
 
