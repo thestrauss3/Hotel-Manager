@@ -5,9 +5,9 @@ class CustomersController < ApplicationController
 
   def show
     @customer = Customer.find(params[:id])
-    @future_bookings = @customer.bookings.where(status: 'Reservations')
-    @current_bookings = @customer.bookings.where(status: 'Checked in')
-    @past_bookings = @customer.bookings.where(status: 'Checked out')
+    @future_bookings = @customer.bookings.where(status: 'Reservation')
+    @current_bookings = @customer.bookings.where(checkout_time: nil).where.not(checkin_time: nil)
+    @past_bookings = @customer.bookings.where.not(checkout_time: nil)
     @cancelled_bookings = @customer.bookings.where(status: 'Cancelled')
   end
 

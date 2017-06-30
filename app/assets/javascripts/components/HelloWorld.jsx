@@ -3,7 +3,6 @@ var HelloMessage = React.createClass({
     debugger;
   },
   render: function() {
-    debugger;
     return (
       <h1>Hello {this.props.name}!</h1>
     )
