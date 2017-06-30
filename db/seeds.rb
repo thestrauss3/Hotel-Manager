@@ -25,6 +25,6 @@ Booking.create(customer: jack, room: r202, checkin_date: (midnight - 4.days + 16
 
 Booking.create(customer: jack, room: r103, checkin_date: (midnight + 4.days + 16.hours), checkout_date: (midnight + 7.days + 11.hours), status: 'Reservation')
 
-Booking.create(customer: diane, room: r102, checkin_date: (midnight - 2.days + 16.hours), checkout_date: (midnight + 11.hours), status: 'Active', checkin_time: (midnight - 2.days + 19.hours)
+Booking.create(customer: diane, room: r102, checkin_date: (midnight - 2.days + 16.hours), checkout_date: (midnight + 11.hours), status: 'Active', checkin_time: (midnight - 2.days + 19.hours))
 
 Booking.create(customer: bob, room: penthouse, checkin_date: (midnight + 1.day + 16.hours), checkout_date: (midnight + 4.days + 11.hours), status: 'Reservation')
