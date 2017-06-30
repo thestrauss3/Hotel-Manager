@@ -1,0 +1,56 @@
+<%= form_for [customer, booking], method: "post", action: "create" do |f| %>
+  <div class="field">
+    <%= f.label :status, "Status", class: "hidable" %>
+    <%= f.text_field :status %>
+  </div>
+
+  <input type="text" id="customer_id" name="customer_id" value="<%= customer.id %>" class="hidden" >
+  <label for="scheduled_checkin">Checkin Date</label>
+  <input type="text" class="span2" id="scheduled_checkin" name="scheduled_checkin">
+  <label for="scheduled_checkout">Checkout Date</label>
+  <input type="text" class="span2" id="scheduled_checkout" name="scheduled_checkout">
+  <%= f.submit "Show available rooms", method: "get", action: "something" %>
+  <% if rooms %>
+    <label for="room-select">Select Room</label>
+    <select id="room_number" name="room_id"><% rooms.each do |r| %>
+      <option value="<%= r.id %>"><%= r.room_number %></option>
+    <% end %></select>
+    <%= button_to "Create", controller: "bookings", action: "create", remote: true, value: "create" %>
+  <% end %>
+
+  <script>
+  var nowTemp = new Date();
+  var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 16, 0, 0, 0);
+  var tomorrow = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate() + 1, 11, 0, 0, 0);
+  var checkin = $('#scheduled_checkin').fdatepicker({
+    initialDate: now,
+    format: 'mm/dd/yyyy hh:ii',
+    pickTime: true,
+    onRender: function (date) {
+      return date.valueOf() < now.valueOf() ? 'disabled' : '';
+    }
+  }).on('changeDate', function (ev) {
+    if (ev.date.valueOf() > checkout.date.valueOf()) {
+      var newDate = new Date(ev.date)
+      newDate.setDate(newDate.getDate() + 1);
+      checkout.update(newDate);
+    }
+    checkin.hide();
+    $('#scheduled_checkout')[0].focus();
+  }).data('datepicker');
+  var checkout = $('#scheduled_checkout').fdatepicker({
+    initialDate: tomorrow,
+    format: 'mm/dd/yyyy hh:ii',
+    pickTime: true,
+    onRender: function (date) {
+      return date.valueOf() <= checkin.date.valueOf() ? 'disabled' : '';
+    }
+  }).on('changeDate', function (ev) {
+    checkout.hide();
+  }).data('datepicker');
+  </script>
+
+
+  <!-- <%= submit_tag 'Save', :name => 'save' %> -->
+  <!-- <%= submit_tag 'Save to Library', :name => 'library' %> -->
+<% end %>

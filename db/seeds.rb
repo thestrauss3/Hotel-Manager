@@ -19,12 +19,15 @@ jack = Customer.create(name: 'Jack', phone: '543-231-2567', email: 'applejack@gm
 diane = Customer.create(name: 'Diane', phone: '123-472-4563', email: 'dsmith@gmail.com')
 bob = Customer.create(name: 'Bob', phone: '123-456-7890', email: 'bob@bob.bob')
 
-midnight = DateTime.now
+midnight = DateTime.now.midnight
 
-Booking.create(customer: jack, room: r202, checkin_date: (midnight - 4.days + 16.hours), checkout_date: (midnight - 2.days + 11.hours), status: 'Past', checkin_time: (midnight - 4.days + 17.hours + 15.minutes), checkout_time: (midnight - 2.days + 10.hours + 15.minutes))
+b1 = Booking.create(customer: jack, room: r202, scheduled_checkin: (midnight - 4.days + 16.hours), scheduled_checkout: (midnight - 2.days + 11.hours), status: 'Past', actual_checkin: (midnight - 4.days + 17.hours + 15.minutes), actual_checkout: (midnight - 2.days + 10.hours + 15.minutes))
 
-Booking.create(customer: jack, room: r103, checkin_date: (midnight + 4.days + 16.hours), checkout_date: (midnight + 7.days + 11.hours), status: 'Reservation')
+b2 = Booking.create(customer: jack, room: r103, scheduled_checkin: (midnight + 4.days + 16.hours), scheduled_checkout: (midnight + 7.days + 11.hours), status: 'Reservation')
 
-Booking.create(customer: diane, room: r102, checkin_date: (midnight - 2.days + 16.hours), checkout_date: (midnight + 11.hours), status: 'Active', checkin_time: (midnight - 2.days + 19.hours)
+b3 = Booking.create(customer: diane, room: r102, scheduled_checkin: (midnight - 2.days + 16.hours), scheduled_checkout: (midnight + 11.hours), status: 'Active', actual_checkin: (midnight - 2.days + 19.hours))
 
-Booking.create(customer: bob, room: penthouse, checkin_date: (midnight + 1.day + 16.hours), checkout_date: (midnight + 4.days + 11.hours), status: 'Reservation')
+b4 = Booking.create(customer: bob, room: penthouse, scheduled_checkin: (midnight + 1.day + 16.hours), scheduled_checkout: (midnight + 4.days + 11.hours), status: 'Reservation')
+
+require 'pry'
+binding.pry
