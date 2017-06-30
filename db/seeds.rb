@@ -28,6 +28,3 @@ b2 = Booking.create(customer: jack, room: r103, scheduled_checkin: (midnight + 4
 b3 = Booking.create(customer: diane, room: r102, scheduled_checkin: (midnight - 2.days + 16.hours), scheduled_checkout: (midnight + 11.hours), status: 'Active', actual_checkin: (midnight - 2.days + 19.hours))
 
 b4 = Booking.create(customer: bob, room: penthouse, scheduled_checkin: (midnight + 1.day + 16.hours), scheduled_checkout: (midnight + 4.days + 11.hours), status: 'Reservation')
-
-require 'pry'
-binding.pry
