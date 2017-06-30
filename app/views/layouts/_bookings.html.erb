@@ -4,15 +4,13 @@
 <table>
   <tr>
     <th>Room</th>
-    <th>Check-in Date</th>
-    <th>Check-out Date</th>
-    <th>Status</th>
+    <th>Checkin (4 PM)</th>
+    <th>Checkout (11 AM)</th>
   </tr>
   <% bookings.each do |b| %><tr>
     <td><%= b.room.room_number %></td>
-    <td><%= b.checkin_date %></td>
-    <td><%= b.checkout_date %></td>
-    <td><%= b.status %></td>
+    <td><%= b.scheduled_checkin.strftime("%a %b %-d, %Y") %></td>
+    <td><%= b.scheduled_checkout.strftime("%a %b %-d, %Y") %></td>
   </tr><% end %>
 </table>
 </div>
