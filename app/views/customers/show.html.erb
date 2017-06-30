@@ -3,6 +3,8 @@
 <li><%= @customer.phone %></li>
 <li><%= @customer.email %></li>
 
+<%= link_to 'Create new reservation for this customer', new_customer_booking_path(@customer) %>
+
 <div class='row small-up-1 large-up-2'>
   <%= render 'layouts/bookings', bookings: @current_bookings, title: 'Active Bookings' %>
   <%= render 'layouts/bookings', bookings: @future_bookings, title: 'Reservations' %>
