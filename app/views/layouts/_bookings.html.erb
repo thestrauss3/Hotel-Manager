@@ -4,14 +4,14 @@
 <table>
   <tr>
     <th>Room</th>
-    <th>Check-in Date</th>
-    <th>Check-out Date</th>
+    <th>Checkin (4 PM)/th>
+    <th>Checkout (11 AM)</th>
     <th>Status</th>
   </tr>
   <% bookings.each do |b| %><tr>
     <td><%= b.room.room_number %></td>
-    <td><%= b.checkin_date %></td>
-    <td><%= b.checkout_date %></td>
+    <td><%= b.scheduled_checkin %></td>
+    <td><%= b.scheduled_checkout %></td>
     <td><%= b.status %></td>
   </tr><% end %>
 </table>

@@ -1,5 +1,5 @@
 class Booking < ApplicationRecord
-  validates :customer, :room, :checkin_date, :checkout_date, :status, presence: true
+  validates :customer, :room, :scheduled_checkin, :scheduled_checkout, :status, presence: true
   validates :status, inclusion: { in: %w(Past Active Reservation Cancelled) }
 
   belongs_to :customer
