@@ -8,10 +8,15 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :rooms, only: [:show]
+  resources :rooms, only: [:show] do
+  end
 
   resources :customers do
-    resources :bookings
+    resources :bookings do
+      collection do
+        get :show_rooms
+      end
+    end
   end
 
   resources :searches, only: [:index]
