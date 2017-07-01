@@ -13,21 +13,38 @@ class ScheduleContainer extends React.Component {
 
   render () {
     var today = new Date;
-    var number_of_columns = Math.floor(window.innerWidth / 100);
-    var rooms = this.props.rooms.map((room, index) => {
+    var numberOfColumns = Math.floor(window.innerWidth / 100);
+
+    var listOfDays = [];
+    for(var i = 0; i < numberOfColumns; i++) {
+      var day = addDays(this.state.focus, i-1)
+      listOfDays.push(day)
+    }
+
+    var listOfRooms = this.props.rooms.map((room, index) => {
       return (
-        <Room key={index} />
+        <Room
+          key={index}
+          focus = { this.state.focus }
+          roomInfo = { room }
+          bookings = { this.props.bookings }
+          listOfDays = { listOfDays }
+        />
       )
     })
+
 
     return (
       <table>
         <thead>
           <TableHeader
-            number_of_columns = {number_of_columns}
-            focus = {this.state.focus}
+            focus = { this.state.focus }
+            listOfDays = { listOfDays }
           />
         </thead>
+        <tbody>
+          { listOfRooms }
+        </tbody>
     </table>
     );
   }

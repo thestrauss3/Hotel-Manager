@@ -4,23 +4,23 @@ class TableHeader extends React.Component {
   }
 
   render () {
-    var row = [];
-    for(var i = 0; i < this.props.number_of_columns; i++) {
-      var day = addDays(this.props.focus, i-1)
+    var row = this.props.listOfDays.map((day, index) => {
       var title = getNamedMonth(day) + " " + day.getDate()
-      row.push(<th>{title}</th>)
-    }
+      return(
+        <th key={ index }>{ title }</th>
+      )
+    })
     return (
-      <tr>{row}</tr>
+      <tr><th>Room</th>{ row }</tr>
     )
   }
 }
 
 TableHeader.propTypes = {
-  number_of_columns: React.PropTypes.number.isRequired,
+  numberOfColumns: React.PropTypes.number.isRequired,
   focus: React.PropTypes.instanceOf(Date)
 };
 TableHeader.defaultProps = {
-  number_of_columns: 3,
+  numberOfColumns: 3,
   focus: new Date()
 };
