@@ -21,13 +21,12 @@ bob = Customer.create(name: 'Bob', phone: '123-456-7890', email: 'bob@bob.bob')
 
 midnight = DateTime.now.midnight
 
-b1 = Booking.create(customer: jack, room: r202, scheduled_checkin: (midnight - 4.days + 16.hours), scheduled_checkout: (midnight - 2.days + 11.hours), status: 'Past', actual_checkin: (midnight - 4.days + 17.hours + 15.minutes), actual_checkout: (midnight - 2.days + 10.hours + 15.minutes))
+past1 = Booking.create(customer: jack, room: r202, scheduled_checkin: (midnight - 4.days + 16.hours), scheduled_checkout: (midnight - 2.days + 11.hours), status: 'Past', actual_checkin: (midnight - 4.days + 17.hours + 15.minutes), actual_checkout: (midnight - 2.days + 10.hours + 15.minutes))
 
-b2 = Booking.create(customer: jack, room: r103, scheduled_checkin: (midnight + 4.days + 16.hours), scheduled_checkout: (midnight + 7.days + 11.hours), status: 'Reservation')
+reservation1 = Booking.create(customer: jack, room: r103, scheduled_checkin: (midnight + 4.days + 16.hours), scheduled_checkout: (midnight + 7.days + 11.hours), status: 'Reservation')
 
-b3 = Booking.create(customer: diane, room: r102, scheduled_checkin: (midnight - 2.days + 16.hours), scheduled_checkout: (midnight + 11.hours), status: 'Active', actual_checkin: (midnight - 2.days + 19.hours))
+reservation2 = Booking.create(customer: bob, room: penthouse, scheduled_checkin: (midnight + 1.day + 16.hours), scheduled_checkout: (midnight + 4.days + 11.hours), status: 'Reservation')
 
-b4 = Booking.create(customer: bob, room: penthouse, scheduled_checkin: (midnight + 1.day + 16.hours), scheduled_checkout: (midnight + 4.days + 11.hours), status: 'Reservation')
+active1 = Booking.create(customer: diane, room: r102, scheduled_checkin: (midnight - 2.days + 16.hours), scheduled_checkout: (midnight + 11.hours), status: 'Active', actual_checkin: (midnight - 2.days + 19.hours))
 
-require 'pry'
-binding.pry
+active2 = Booking.create(customer: diane, room: r104, scheduled_checkin: (midnight - 1.days + 16.hours), scheduled_checkout: (midnight + 3.days + 11.hours), status: 'Active', actual_checkin: (midnight - 1.days + 18.hours))
